@@ -5,9 +5,11 @@ angular.module('app.db', [])
 function DBService($q) {
   let mongoose = require('mongoose');
   let db_settings = { //DEFAULT DB SETTINGS
-    server: 'localhost',
-    port: 27017,
-    dbname: 'meancourse'
+    user: 'user',
+    password: 'password',
+    server: 'ds061076.mlab.com',
+    port: 61076,
+    dbname: 'littlebigcourse'
   }
   let service = {};
 
