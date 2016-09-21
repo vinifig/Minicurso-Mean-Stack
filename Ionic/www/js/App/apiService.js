@@ -1,7 +1,7 @@
 angular.module('minicurso')
   .service('ApiService', function($http, $q) {
 
-  var baseURL = "http://localhost:8080/";
+  var baseURL = "http://api.vinifig.me/";
 
   var req = {
    method: 'GET',
