@@ -5,7 +5,7 @@ const config = function(cli){
   let data = {}
   data.port = cli.port ? cli.port : 27017;
   data.server = cli.server ? cli.server : 'localhost';
-  data.dbname = cli.database ? cli.database : 'test';
+  data.dbname = cli.database ? cli.database : 'meancourse';
   data.listen = cli.listen ? cli.listen: 8080;
   return data;
 }
