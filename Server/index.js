@@ -33,7 +33,7 @@ const config = require('./lib/config')(cli);
 // xablau.init(db_confs, server);
 xablau.init(config, app);
 
-// app.listen(port)
+// app.listen(port, callback)
 app.listen(config.listen, () => {
-  console.log(`Listening on port ${config.listen}`);
+  console.log(`Server listening on port ${config.listen}`);
 })
