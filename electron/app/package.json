@@ -1,0 +1,10 @@
+{
+  "name": "motomapas",
+  "version": "0.0.0",
+  "description": "motomapas",
+  "main": "main.js",
+  "dependencies": {
+    "angular": "~1.4.4",
+    "angular-route": "~1.4.4"
+  }
+}

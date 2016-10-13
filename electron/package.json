@@ -1,0 +1,31 @@
+{
+  "name": "motomapas",
+  "version": "0.0.0",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "fs-jetpack": "^0.7.0",
+    "electron-prebuilt": "^1.3.7",
+    "asar": "^0.7.2",
+    "q": "^1.4.1",
+    "gulp-copy": "0.0.2",
+    "gulp-uglify": "^1.3.0",
+    "gulp-usemin": "^0.3.12",
+    "rcedit": "^0.3.0"
+  },
+  "description": "This sample application demonstrate how to create a desktop application using Angular JS and Github Electron.",
+  "main": "Gulpfile.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksetoue/moto-mapas.git"
+  },
+  "author": "LTIA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksetoue/moto-mapas/issues"
+  },
+  "homepage": "https://github.com/ksetoue/moto-mapas#readme"
+}
