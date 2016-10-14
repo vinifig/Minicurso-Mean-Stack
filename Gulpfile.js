@@ -1,5 +1,6 @@
 'use strict';
 
+const spawn = require('child_process').spawn;
 const gulp = require('gulp');
 const install = require('gulp-install')
 const jetpack = require('fs-jetpack');
@@ -26,18 +27,7 @@ gulp.task('install', function () {
   }
 });
 
-// gulp.task('install', function () {
-//     return projectDir.copyAsync('app', destDir.path(), {
-//         overwrite: true,
-//         matching: [
-//             './node/*.js',
-//             './node/**/*.js',
-//             './node_modules/**/*',
-//             '*.svg',
-//             '*.html',
-//             '*.css',
-//             '*.js',
-//             'package.json'
-//         ]
-//     });
-// });
+
+gulp.task('server', function(){
+  spawn('node', [moduleDirs.server.path()], { stdio: 'inherit' });
+});
