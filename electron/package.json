@@ -1,5 +1,5 @@
 {
-  "name": "motomapas",
+  "name": "minicurso",
   "version": "0.0.0",
   "devDependencies": {
     "gulp": "^3.9.0",
@@ -18,14 +18,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ksetoue/moto-mapas.git"
-  },
   "author": "LTIA",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ksetoue/moto-mapas/issues"
-  },
-  "homepage": "https://github.com/ksetoue/moto-mapas#readme"
+  "license": "ISC"
 }
