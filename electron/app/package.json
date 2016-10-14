@@ -6,7 +6,6 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-route": "~1.4.4",
-    "mongoose": "^4.6.3",
-    "photon": "^2.0.0"
+    "mongoose": "^4.6.3"
   }
 }
