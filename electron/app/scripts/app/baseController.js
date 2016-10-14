@@ -23,14 +23,24 @@ function BaseController($scope, UserService) {
   $scope.currentUser = {};
 
   // public methods
+  $scope.newUser = function(){
+    currentUserIndex = -1;
+    $scope.currentUser = {};
+  }
+
+  $scope.editUser = function($index){
+    currentUserIndex = $index;
+    $scope.currentUser = $scope.users[currentUserIndex];
+  }
+
   $scope.save = function(){
     if(currentUserIndex == -1){
       // save
       UserService.insert($scope.currentUser).then(
         (success) => {
           console.log("New user was added into your database");
-          $scope.currentUser = {};
           loadUsers();
+          $scope.newUser();
         },
         (err, data) => {
           console.log("Error: Can't add the new user into your database");
@@ -39,6 +49,17 @@ function BaseController($scope, UserService) {
       )
     }else{
       // update
+      UserService.update($scope.currentUser).then(
+        (success) => {
+          console.log("User Updated");
+          loadUsers();
+          $scope.newUser();
+        },
+        (err, data) => {
+          console.log("Error: Can't Update user");
+          console.log(err, data);
+        }
+      )
     }
   }
 
