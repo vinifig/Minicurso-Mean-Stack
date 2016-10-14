@@ -33,6 +33,19 @@ function BaseController($scope, UserService) {
     $scope.currentUser = $scope.users[currentUserIndex];
   }
 
+  $scope.removeUser = function(){
+    UserService.remove($scope.currentUser).then(
+      (op) => {
+        console.log("removed");
+        loadUsers();
+        $scope.newUser();
+      },
+      (err,data) => {
+        console.log("not removed");
+      }
+    )
+  }
+
   $scope.save = function(){
     if(currentUserIndex == -1){
       // save

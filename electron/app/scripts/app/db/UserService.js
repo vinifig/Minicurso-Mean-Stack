@@ -76,6 +76,22 @@
       return deferred.promise;
     }
 
+    // Remove User
+    service.remove = function(user_data){
+      let deferred = $q.defer();
+      DBService.connect();
+      console.log("uee")
+      User.remove(user_data, function(err, op){
+        console.log("UE")
+        if(err){
+          return deferred.reject(err);
+        }
+        return deferred.resolve(op);
+      })
+
+      return deferred.promise;
+    }
+
     return service;
   }
 })()
