@@ -3,7 +3,8 @@
 const _templateBase = './scripts';
 
 angular.module('app', [
-  'ngRoute'
+  'ngRoute',
+  'app.db'
 ])
 .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/', {

@@ -1,1 +1,47 @@
-<div id="rootPage" class="rootPage" layout="row">Hello World</div>
+<div class="window"> <!-- Photon window class -->
+  <div class="window-content"> <!-- photon window-content class -->
+    <div class="pane-group"> <!-- photon container -->
+      <div class="pane-sm sidebar"> <!-- photon sidebar -->
+        <ul class="list-group"> <!-- photon ui list -->
+          <li class="list-group-header"> <!-- photon list header -->
+            <strong>Employeers</strong>
+            <button class="btn btn-mini btn-positive" ng-click="newUser()">
+              <span class="icon icon-plus"></span>
+            </button>
+          </li>
+          <li ng-repeat="user in users" ng-click="editUser($index)" class="list-group-item"> <!-- photon item list + ngrepeat -->
+            <img class="img-circle media-object pull-left" ng-src="{{user.picture || './assets/img/frodo.jpg'}}" width="32" height="32"> <!-- item-image -->
+            <div class="media-body"> <!-- list content -->
+              <strong>{{user.name}}</strong> <!-- item-title -->
+              <p>{{user.role}}</p> <!-- item-content -->
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="pane content">
+        <form> <!-- form ui -->
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" placeholder="Full Name" ng-model="currentUser.name" name="user-name">
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <input type="text" class="form-control" placeholder="Role" ng-model="currentUser.role" name="user-role">
+          </div>
+          <div class="form-group">
+            <label>Picture URL</label>
+            <input type="text" class="form-control" placeholder="Picture" ng-model="currentUser.picture" name="user-picture">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" placeholder="Description" ng-model="currentUser.description" name="user-description" rows="3"></textarea>
+          </div>
+          <div class="form-actions">
+            <button ng-click="save()" class="btn btn-form btn-primary">Save</button>
+            <button ng-show="currentUser._id !== undefined" ng-click="removeUser()" class="btn btn-form btn-negative">Delete</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
