@@ -18,13 +18,23 @@ Para usar o Ionic, você pode seguir as instruções descritas [neste link](http
 ### Por onde começar?
 Depois de ter configurado todos as tecnologias, é hora de entender como este tutorial funciona.
 
-As aplicações exemplo tem como objetivo mostrar como realizar uma conexão com banco de dados. No caso do Ionic, utilizaremos um servidor em node para alimentar a aplicação, enquanto no caso do Electron, a conexão com o banco será feita de forma direta.
+Após clonar este repositório, entre na pasta do projeto e rode os seguintes comandos:
+``` sh
+npm install
+gulp install
+```
 
-A imagem abaixo apresenta a arquitetura da aplicação.
+### Instalando dependências
+
+
 
 
 
 ### O que esse conjunto vai fazer
+
+As aplicações exemplo tem como objetivo mostrar como realizar uma conexão com banco de dados. No caso do Ionic, utilizaremos um servidor em node para alimentar a aplicação, enquanto no caso do Electron, a conexão com o banco será feita de forma direta.
+
+A imagem abaixo apresenta a arquitetura da aplicação.
 
 
 ### O Server
