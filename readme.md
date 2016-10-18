@@ -52,9 +52,13 @@ Para construir o servidor da aplicação em Ionic, foi utilizada a biblioteca [X
 
 Existem duas maneiras de rodar o server.
 
-1. Executando o comando `gulp server` na raiz do projeto, precisando de uma instancia do MongoDB rodando localmente (`mongod`)
+1. Executando o comando `gulp server` na raiz do projeto, precisando de uma instancia do MongoDB rodando localmente (`mongod`), sem usuário nem senha.
 2. Dentro da pasta `caminho\do\projeto\Server`, execute diretamente com `node index [options]`. Para ver as opções `node index --help`
 
+Para acessar todos os usuários cadastrados no banco de dados, basta acessar a url:
+`http://localhost:8080/user`
+
+P.S.: Caso tenha modificado a porta do servidor na linha de comando trocar a porta `8080` para a escolhida por você.
 
 ### A aplicação em Electron
 
