@@ -62,8 +62,20 @@ P.S.: Caso tenha modificado a porta do servidor na linha de comando trocar a por
 
 ### A aplicação em Electron
 
+Para construir a aplicação em Electron, vamos precisar de alguns conhecimentos prévios. É recomendável que você entenda o funcionamento das seguintes ferramentas:
+* Node, que você pode aprender [aqui](https://nodejs.org/en/about/)
+* Electron, que você pode aprender [aqui](http://electron.atom.io/docs/tutorial/about/)
+* Gulp, que você pode aprender [aqui](https://github.com/gulpjs/gulp)
+* Photom, que você pode aprender [aqui](http://photonkit.com/getting-started/)
+
+#### Pronto! E agora?
+Agora que você já possui certa compreensão sobre as ferramentas acima é hora de entender o que faremos.
+Esta aplicação em Electron tem como foco fornecer a interface para inserção, alteração e remoção de dados do banco de dados que criamos utilizando `mongo`. Para isto, utilizamos `CRUD`, sigla para `Create, read, update and delete`, que são as quatro funções básicas de armazenamento.
 
 ### A aplicação em Ionic
+
+Para construir a aplicação em Ionic, você precisa alguns conceitos como:
+* Services -> [o que são, como funcionam?]()
 
 [MongoDB]: <https://www.mongodb.com/download-center#community>
 [Node.js]: <http://nodejs.org>
