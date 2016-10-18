@@ -30,6 +30,6 @@ titlebar.on('minimize', function(e) {
 
 const titleEl = document.createElement('div');
 titleEl.innerHTML = document.title;
-titleEl.setAttribute('class','title');
+titleEl.setAttribute('class','title electron-window-title');
 titlebar.element.appendChild(titleEl);
 titlebar.appendTo(document.body);

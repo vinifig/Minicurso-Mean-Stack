@@ -1,112 +1,18 @@
-body{
-  overflow-y: hidden;
-}
-.rootPage, .mapContainer, #map{
-  width:100%;
-  height:100%;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-ng-view, .rootPage{
-  max-height: calc(100% - 32px);
+.window{
+  max-height: calc(100vh - 32px);
+  margin-top: 32px;
 }
 
-.titlebar{
-  text-align: center;
-}
-
-.title{
-  padding: 10px 0;
+.electron-window-title{
   color: white;
-  font-family: serif;
-  font-size: 14px;
+  line-height: 32px;
 }
 
-.md-sidenav-right{
-	background: rgb(54,54,54);
-}
-
-.md-button{
-	border-bottom:0.3px solid #525252;
-}
-
-.display-points{
-	margin-right: 20px;
-	margin-left: 20px;
-}
-
-.display-points .child,{
-	margin-top: 20px;
-}
-
-.not-responsive p, .not-responsive .code{
-	color: rgb(243,83,80);
-}
-
-.alerts p, .alerts .code{
-	color: rgb(251,225,82);
-}
-.operating p, .operating .code{
-	color: rgb(81,247,108);
-}
-
-.city{
-	color: rgb(253,253,253);
-}
-
-.md-icon-button{
-	border:none;
-	float:left;
-}
-
-input{
-	border: 2px solid rgb(54,54,54);
-  border-radius: 5px;
-	background-color: #525252;
-	float:left;
-	margin-top: 8px;
-	height: 35px;
-  padding: 3px 5px;
-  color: #c3c3c3;
-}
-
-span{
-	display: inline-block;
-}
-
-md-icon svg *{
-  fill: #a9a9a9;
-}
-
-.mapContainer md-toolbar{
-  position:absolute;
-  bottom: 0;
-}
-
-.md-motomapas{
-  background-color: rgba(54, 54, 54, 0.8);
-  box-shadow: 0 0 3px black;
-}
-
-
-.hidden{
-  display: none;
-}
-
-.show{
-  display: inherit;
-}
-
-.md-toolbar-tools{
-	font-size: 15px;
-	font-style: rgb(253,253,253);
-	display: inline-block;
-}
-
-#close-button{
-	line-height: 12px;
-  margin-top: 1px;
-  margin-right: 2px;
-  position:absolute;
-  top:0;
-	right: 0;
+.pane.content{
+  padding: 12.5px;
 }

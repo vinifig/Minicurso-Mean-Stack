@@ -6,6 +6,7 @@
   "dependencies": {
     "angular": "~1.4.4",
     "angular-route": "~1.4.4",
+    "electron-titlebar-windows": "^2.1.0",
     "mongoose": "^4.6.3"
   }
 }
