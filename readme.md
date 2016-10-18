@@ -67,18 +67,21 @@ Para construir a aplicação em Electron, vamos precisar de alguns conhecimentos
 * Node, que você pode aprender [aqui](https://nodejs.org/en/about/)
 * Electron, que você pode aprender [aqui](http://electron.atom.io/docs/tutorial/about/)
 * Gulp, que você pode aprender [aqui](https://github.com/gulpjs/gulp)
-* Photom, que você pode aprender [aqui](http://photonkit.com/getting-started/)
+* Photon, que você pode aprender [aqui](http://photonkit.com/getting-started/)
 
 #### Pronto! E agora?
-Agora que você já possui certa compreensão sobre as ferramentas acima é hora de entender o que faremos.Esta aplicação em Electron tem como foco fornecer a interface para inserção, alteração e remoção de dados do banco de dados que criaremos utilizando `mongo`. Para isto, utilizamos `CRUD`, sigla para `Create, read, update and delete`, que são as quatro funções básicas de armazenamento.
+Agora que você já possui certa compreensão sobre as ferramentas acima é hora de entender o que faremos.Esta aplicação em Electron tem como foco fornecer a interface para inserção, alteração e remoção de dados do banco de dados que criaremos utilizando `mongo`. Para isto, utilizamos `CRUD`, sigla para `Create, Read, Update and Delete`, que são as quatro funções básicas de armazenamento.
 
 #### Configurando o Photon
 
 Para incluí-lo em nosso app, devemos inserir no arquivo `index.html` a seguinte linha:
+
 ``` html
 <link rel="stylesheet" href="assets/css/photon.css" />
 ```
+
 logo abaixo do trecho a seguir:
+
 ``` html
 <!DOCTYPE html>
 <html lang="pt-BR" ng-app="app">
@@ -178,6 +181,7 @@ Crie a seguinte pasta no projeto `electron/app/scripts/app/db`. Dentro dela colo
 Para conectar nossa aplicação ao banco de dados vamos criar uma service chamada `DBService`. Então o próximo passo é criar um arquivo chamado `DBService.js` na pasta recém criada.
 
 Essa `service` conterá métodos para criar e destruir nossa conexão ao banco de dados, para isso insira no arquivo o seguinte código:
+A partir desse momento será necessário acesso a um banco de dados MongoDB. Caso não tenha um banco de dados local para usar, modifique as `db_settings` conforme sua necessidade.
 
 ```js
 'use strict';
@@ -483,7 +487,51 @@ function BaseController($scope, UserService) { // Adicionando o paramêtro para 
 
 Uma vez que nosso controlador está se comunicando com o BD e já tem seus métodos, vamos alterar a view de maneira que possamos usar estes dados que estamos mandando de um lugar para o outro desde o começo.
 
+Começando com a lista de `Employees`, remova todos os elementos com a classe `list-group-item`, e insira o seguinte código:
 
+```html
+<!-- O ng-repeat percorre nosso vetor de usuários do BaseController e para cada elemento infla esse código html na página criando dentro deste trecho uma váriavel user para uso interno -->
+<!-- Quando clicado ele chama o método editUser, que jogará os valores no formulário para edição -->
+<li ng-repeat="user in users" ng-click="editUser($index)" class="list-group-item"> <!-- photon item list + ngrepeat -->
+  <!-- O ng-src coloca como imagem o valor de picture do user, caso não tenha sido definido, usa nossa imagem default -->
+  <img class="img-circle media-object pull-left" ng-src="{{user.picture || './assets/img/frodo.jpg'}}" width="32" height="32"> <!-- item-image -->
+
+
+  <div class="media-body"> <!-- list content -->
+    <!-- Escreve o nome de usuário e seu cargo na lista -->
+    <strong>{{user.name}}</strong> <!-- item-title -->
+    <p>{{user.role}}</p> <!-- item-content -->
+  </div>
+</li>
+```
+
+Com a lista de usuários pronta, agora vamos ao formulário. Nele adicionaremos o atributo `ng-model` aos campos de entrada, que deverá relacionar o valor dos campos com os do nosso usuário atual e `ng-click` ao botão para salvar esse usuário, e um ao novo botão para remover este usuário que deverá ser mostrado apenas se não estivermos criando um novo usuário, ou seja `currentUser._id !== undefined`. O resultado disso está logo abaixo:
+```html
+<form> <!-- form ui -->
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" class="form-control" placeholder="Full Name" ng-model="currentUser.name" name="user-name"> <!-- Input relacionado com seu respectivo campo dentro da variável de usuário. Se repete em todos os campos abaixo -->
+  </div>
+  <div class="form-group">
+    <label>Role</label>
+    <input type="text" class="form-control" placeholder="Role" ng-model="currentUser.role" name="user-role">
+  </div>
+  <div class="form-group">
+    <label>Picture URL</label>
+    <input type="text" class="form-control" placeholder="Picture" ng-model="currentUser.picture" name="user-picture">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" placeholder="Description" ng-model="currentUser.description" name="user-description" rows="3"></textarea>
+  </div>
+  <div class="form-actions">
+    <button ng-click="save()" class="btn btn-form btn-primary">Save</button> <!-- Antigo botão, agora chamando o método de save, assim que clicado -->
+    <button ng-show="currentUser._id !== undefined" ng-click="removeUser()" class="btn btn-form btn-negative">Delete</button><!-- Novo botão com ng-show e ng-click para remoção do usuário -->
+  </div>
+</form>
+```
+
+Com isso a nossa aplicação de CRUD básico em electron está completa.
 
 Em caso de dúvidas, o código final desta etapa pode ser observado no branch `electron`.
 
@@ -491,6 +539,8 @@ Em caso de dúvidas, o código final desta etapa pode ser observado no branch `e
 
 Para construir a aplicação em Ionic, você precisa alguns conceitos como:
 * Services -> [o que são, como funcionam?]()
+
+Vai com calma aí galera ;)
 
 [MongoDB]: <https://www.mongodb.com/download-center#community>
 [Node.js]: <http://nodejs.org>
