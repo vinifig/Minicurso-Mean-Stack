@@ -63,9 +63,18 @@ P.S.: Caso tenha modificado a porta do servidor na linha de comando trocar a por
 ### A aplicação em Electron
 O Electron é uma ferramente de desenvolvimento de aplicativos desktop usando tecnologias web. Para a criação da interface usaremos o Photon (http://photonkit.com/), um framework css feito para electron. Ele pode ser baixado em seu site oficial, mas nosso projeto inicial já está com seus arquivos.
 
+Para construir a aplicação em Electron, vamos precisar de alguns conhecimentos prévios. É recomendável que você entenda o funcionamento das seguintes ferramentas:
+* Node, que você pode aprender [aqui](https://nodejs.org/en/about/)
+* Electron, que você pode aprender [aqui](http://electron.atom.io/docs/tutorial/about/)
+* Gulp, que você pode aprender [aqui](https://github.com/gulpjs/gulp)
+* Photom, que você pode aprender [aqui](http://photonkit.com/getting-started/)
+
+#### Pronto! E agora?
+Agora que você já possui certa compreensão sobre as ferramentas acima é hora de entender o que faremos.Esta aplicação em Electron tem como foco fornecer a interface para inserção, alteração e remoção de dados do banco de dados que criaremos utilizando `mongo`. Para isto, utilizamos `CRUD`, sigla para `Create, read, update and delete`, que são as quatro funções básicas de armazenamento.
+
 #### Configurando o Photon
 
-Para inclui-lo em nosso app, devemos inserir no arquivo `index.html` a seguinte linha:
+Para incluí-lo em nosso app, devemos inserir no arquivo `index.html` a seguinte linha:
 ``` html
 <link rel="stylesheet" href="assets/css/photon.css" />
 ```
@@ -82,11 +91,11 @@ logo abaixo do trecho a seguir:
     <link rel="stylesheet" href="assets/css/style.css" />
 ```
 
-#### Iniciando com a interface
+#### Iniciando a interface
 
 A documentação do framework, com exemplos de uso, pode ser encotrada em seu site.
 
-A view da aplicação está localizada no arquivo `electron/app/scripts/app/base.html`. A meta é criar uma tela, contendo uma lista de usuários e um formulário para inserir novos usuários ou editar os usuários selecionados. Para criar a base dessa interface, apague tudo e adicione o seguinte trecho de código:
+A view da aplicação está localizada no arquivo `electron/app/scripts/app/base.html`. A meta é criar uma tela contendo uma lista de usuários e um formulário para inserir novos usuários ou editar os usuários selecionados. Para criar a base dessa interface, apague tudo e adicione o seguinte trecho de código:
 
 ``` html
 <div class="window"> <!-- Photon window class -->
@@ -137,7 +146,7 @@ A view da aplicação está localizada no arquivo `electron/app/scripts/app/base
 </div>
 ```
 
-Observando um pouco nossa tela, a interface ainda tem alguns problemas de alinhamento. Para corrigir isso, devemos fazer algumas modificações em nosso CSS, localizado em `assets/css/style.css`.
+Observando nossa tela, a interface ainda tem alguns problemas de alinhamento. Para corrigir isso, devemos fazer algumas modificações em nosso CSS, localizado em `assets/css/style.css`.
 Apague tudo dentro dele e insira o seguinte trecho de código:
 
 ``` css
@@ -158,8 +167,7 @@ Apague tudo dentro dele e insira o seguinte trecho de código:
 ```
 
 #### Implementando o módulo do banco de dados
-Em toda janela criada pelo electron, ele cria um novo `Renderer Process` que é responsável por controlar a interface e se comunicar com o `Main Process`, no caso ele seria nosso arquivo `main.js`. Dentro do `Renderer Process` é possível executar códigos de bibliotecas, que seriam disponíveis apenas dentro do nodejs (como o mongoose), diretamente. Então criaremos uma Service que implementa o mongoose.
-
+Em toda janela criada pelo electron ele cria um novo `Renderer Process` que é responsável por controlar a interface e se comunicar com o `Main Process`, que nesse caso seria nosso arquivo `main.js`. Dentro do `Renderer Process` é possível executar códigos de bibliotecas que estariam disponíveis apenas dentro do nodejs (como o mongoose). Por isso, criaremos uma Service que implementa o mongoose.
 
 Para trabalhar com o banco de dados usaremos o pacote mongoose, um framework que facilita o trabalho em cima do MongoDB em tarefas como validação e consistência dos dados.
 
@@ -266,13 +274,13 @@ Dentro dele insira o seguinte código:
 })()
 ```
 
-No arquivo `index.html` invoque esse script logo abaixo do ultimo script chamado:
+No arquivo `index.html` invoque esse script logo abaixo do último script chamado:
 
 ```html
 <script src="./scripts/app/db/model/user.js"></script>
 ```
 
-Agora para usar esse modelo, e servir nossa aplicação com esses dados vamos criar uma outra service chamada `UserService`. Na pasta de arquivos do banco de dados, crie um arquivo chamado `UserService.js`. Ele conterá o CRUD básico referente aos dados de `Usuários`. Nesse arquivo insira o código abaixo:
+Para usar esse modelo e servir nossa aplicação com esses dados vamos criar uma outra service chamada `UserService`. Na pasta de arquivos do banco de dados, crie um arquivo chamado `UserService.js`. Ele conterá o `CRUD` básico referente aos dados de `Usuários`. Nesse arquivo insira o código abaixo:
 
 ```js
 (function(){
@@ -480,6 +488,9 @@ Uma vez que nosso controlador está se comunicando com o BD e já tem seus méto
 Em caso de dúvidas, o código final desta etapa pode ser observado no branch `electron`.
 
 ### A aplicação em Ionic
+
+Para construir a aplicação em Ionic, você precisa alguns conceitos como:
+* Services -> [o que são, como funcionam?]()
 
 [MongoDB]: <https://www.mongodb.com/download-center#community>
 [Node.js]: <http://nodejs.org>
