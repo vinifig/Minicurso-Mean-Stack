@@ -5,15 +5,15 @@
         <ul class="list-group"> <!-- photon ui list -->
           <li class="list-group-header"> <!-- photon list header -->
             <strong>Employees</strong>
-            <button class="btn btn-mini btn-positive">
+            <button ng-click="newUser()" class="btn btn-mini btn-positive">
               <span class="icon icon-plus"></span>
             </button>
           </li>
-          <li class="list-group-item"> <!-- photon item list -->
-            <img class="img-circle media-object pull-left" src="./assets/img/frodo.jpg" width="32" height="32"> <!-- item-image -->
+          <li ng-repeat="user in users" ng-click="editUser($index)" class="list-group-item"> <!-- photon item list -->
+            <img class="img-circle media-object pull-left" ng-src="{{user.picture || './assets/img/frodo.jpg'}}" width="32" height="32"> <!-- item-image -->
             <div class="media-body"> <!-- list content -->
-              <strong>Frodo Baggins</strong> <!-- item-title -->
-              <p>Bearer of the One Ring</p> <!-- item-content -->
+              <strong>{{user.name}}</strong> <!-- item-title -->
+              <p>{{user.role}}</p> <!-- item-content -->
             </div>
           </li>
         </ul>
@@ -22,22 +22,23 @@
         <form> <!-- form ui -->
           <div class="form-group">
             <label>Full Name</label>
-            <input type="text" class="form-control" placeholder="Full Name" name="user-name">
+            <input type="text" class="form-control" ng-model="currentUser.name" placeholder="Full Name" name="user-name">
           </div>
           <div class="form-group">
             <label>Role</label>
-            <input type="text" class="form-control" placeholder="Author" name="user-role">
+            <input type="text" class="form-control" ng-model="currentUser.role" placeholder="Role" name="user-role">
           </div>
           <div class="form-group">
             <label>Picture URL</label>
-            <input type="url" class="form-control" placeholder="Picture" name="user-picture">
+            <input type="url" class="form-control" placeholder="Picture" ng-model="currentUser.picture" name="user-picture">
           </div>
           <div class="form-group">
             <label>Description</label>
-            <textarea class="form-control" placeholder="Description" name="user-description" rows="3"></textarea>
+            <textarea class="form-control" placeholder="Description" ng-model="currentUser.description" name="user-description" rows="3"></textarea>
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-form btn-primary">Save</button>
+            <button type="submit" ng-click="save()" class="btn btn-form btn-primary">Save</button>
+            <button type="submit" ng-click="removeUser()" ng-show="currentUser._id !== undefined" class="btn btn-form btn-primary">Delete</button>
           </div>
         </form>
       </div>
