@@ -539,6 +539,15 @@ Em caso de dúvidas, o código final desta etapa pode ser observado no branch `e
 
 Para construir a aplicação em Ionic, você precisa alguns conceitos como:
 * Services -> [o que são, como funcionam?]()
+* Node -> [Aprenda aqui]()
+* [AngularJS]
+* [Ionic]
+
+Essa aplicação tem como foco criar um aplicativo que torne possível a visualização dos dados inseridos por meio da aplicação criada em Electron, no tópico anterior.
+
+### O que aprenderemos aqui?
+
+Vamos entender como funciona a criação de `views` no Ionic, como guardar imagens em cache, como implementar `controllers` e como fazer a conexão entre a view criada e o banco de dados utilizando Node js para servir os dados. 
 
 Vai com calma aí galera ;)
 
